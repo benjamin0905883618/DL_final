@@ -23,7 +23,7 @@
 由於提供的data是json形式的
 ![](./keypoint.png)
 每三個一組, 前面兩個部分為keypoints座標, 最後一個則是openpose的confidence。
-![](./openpose_result.png)\
+![](./openpose_result.png)
 每個位置則分別代表身體上的不同部位
 
 **Json2imgs**\
