@@ -3,7 +3,7 @@
 利用課堂提供的訓練資料來訓練出一個可以辨識腿部靈敏度的模型\
 訓練資料 : [LA訓練資料](https://140.123.105.254:8282/s/FHTEqYpCQWPjdHk)\
 由於訓練的label為UPDRS, 這邊也提供上UPDRS分數的意義\
-![](https://github.com/benjamin0905883618/DL_final/blob/main/updrs.png)
+![](https://github.com/benjamin0905883618/DL_final/blob/main/updrs.png =50%)
 
 
 ## Part 1 : Data preprocessing
