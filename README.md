@@ -3,7 +3,7 @@
 利用課堂提供的訓練資料來訓練出一個可以辨識腿部靈敏度的模型\
 訓練資料 : [LA訓練資料](https://140.123.105.254:8282/s/FHTEqYpCQWPjdHk)\
 由於訓練的label為UPDRS, 這邊也提供上UPDRS分數的意義\
-![](https://hackmd.io/_uploads/BkKs8LhL2.png =30%x)
+![](https://github.com/benjamin0905883618/DL_final/blob/main/updrs.png =30%x)
 
 
 ## Part 1 : Data preprocessing
@@ -21,16 +21,16 @@
 
 **Openpose**\
 由於提供的data是json形式的
-![](https://hackmd.io/_uploads/rJFnlI382.png)
+![](https://github.com/benjamin0905883618/DL_final/blob/main/keypoint.png)
 每三個一組, 前面兩個部分為keypoints座標, 最後一個則是openpose的confidence。
-![](https://hackmd.io/_uploads/ry2lbLn83.png =30%x)\
+![](https://github.com/benjamin0905883618/DL_final/blob/main/openpose_result.png =30%x)\
 每個位置則分別代表身體上的不同部位
 
 **Json2imgs**\
 由於資料每筆都是一個影片, 而每個json則代表一幀, 因此我們選擇將json資料透過轉換成圖片, 在依訓練需求調整。
 透過上述的資料結構我們透過程式將json檔依據影片名稱寫成資料夾, 並將每個影片中的json檔換回圖片。\
 由於Openpose也是一個深度學習model, 因此部分幀數可能會有誤測的狀況(由於軀幹距離過近), 這邊也提供誤測的圖, 在訓練中我們並未刪除這類圖片, 只當作躁點希望能些微幫助訓練。\
-![](https://hackmd.io/_uploads/H1yWCI2I3.png =50%x)
+![](https://github.com/benjamin0905883618/DL_final/blob/75618087c8c48d8400976ddf00a135039b13badb/ques.png =50%x)
 
 
 
@@ -73,13 +73,13 @@ class ResNetLSTM(nn.Module):
 
 **資料前處理**\
 透過程式將圖片預先轉成影片, 並根據類似DatasetFolder的方式將資料預先分類。
-![](https://hackmd.io/_uploads/HJVFKI2Lh.png =50%x)![](https://hackmd.io/_uploads/H1u5FLhU2.png =50%x)
+![](https://github.com/benjamin0905883618/DL_final/blob/75618087c8c48d8400976ddf00a135039b13badb/data_parse1.png =50%x)![](https://github.com/benjamin0905883618/DL_final/blob/75618087c8c48d8400976ddf00a135039b13badb/data_parse2.png =50%x)
 再透過pytorchvideo的套件讀成Iter-Dataset。
 由於轉成這個型態後, 無法使用Random_split的套件, 因此我們只能預先將訓練集和驗證集分割好, 由於類別3的影片只有兩支, 所以我們在驗證集在這個類別會用複製的方式, 避免影響訓練的效果, 大約擷取10支影片作驗證, 大約是7:3的比例去做訓練和驗證。
 
 **訓練**\
 使用torchvision的video_model.r3d_18及其預訓練權重進行finetune。
-![](https://hackmd.io/_uploads/HJG-sI2U3.png =50%x)![](https://hackmd.io/_uploads/SyrZjL2U2.png =50%x)\
+![](https://github.com/benjamin0905883618/DL_final/blob/75618087c8c48d8400976ddf00a135039b13badb/hint_model_L/L_loss_surface.png =50%x)![](https://github.com/benjamin0905883618/DL_final/blob/75618087c8c48d8400976ddf00a135039b13badb/hint_model_R/R_loss_surface.png =50%x)\
 由於資料太少, 用同樣的資料和模型, 但不同的分割train、valid的資料, 導致截然不同的結果。\
 在訓練中, 我們採用了Data Hint的方法些微增加資料, 在擴增資料集中, 我們除了原本的Normalize, 只加上了RandomRotation來幫助訓練, 並透過pytorchvideo本身的套件進行"**uniform**"片段擷取, 每次約擷取5秒。
 
