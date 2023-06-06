@@ -1,11 +1,9 @@
 # DL_final - Parkinson’s Disease - LA
 本次專案目的是預測**腿部靈敏度**,\
-img[src*="#w30"] {width: 30%;}
-img[src*="#w50"] {width: 50%;}
 利用課堂提供的訓練資料來訓練出一個可以辨識腿部靈敏度的模型\
 訓練資料 : [LA訓練資料](https://140.123.105.254:8282/s/FHTEqYpCQWPjdHk)\
 由於訓練的label為UPDRS, 這邊也提供上UPDRS分數的意義\
-![](https://github.com/benjamin0905883618/DL_final/blob/main/updrs.png#w30
+![](https://github.com/benjamin0905883618/DL_final/blob/main/updrs.png=280x257)
 
 
 ## Part 1 : Data preprocessing
