@@ -84,7 +84,7 @@ class ResNetLSTM(nn.Module):
 **訓練**\
 使用torchvision的video_model.r3d_18及其預訓練權重進行finetune。
 
-![](./hint_model_L/L_loss_surface.png)![](./hint_model_R/R_loss_surface.png)
+![](./L_loss_surface.png)![](./R_loss_surface.png)
 
 由於資料太少, 用同樣的資料和模型, 但不同的分割train、valid的資料, 導致截然不同的結果。\
 在訓練中, 我們採用了Data Hint的方法些微增加資料, 在擴增資料集中, 我們除了原本的Normalize, 只加上了RandomRotation來幫助訓練, 並透過pytorchvideo本身的套件進行"**uniform**"片段擷取, 每次約擷取5秒。
