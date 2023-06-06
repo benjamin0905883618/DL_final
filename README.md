@@ -21,16 +21,16 @@
 
 **Openpose**\
 由於提供的data是json形式的
-![](./keypoint.png)
+![](./keypoint.png)\
 每三個一組, 前面兩個部分為keypoints座標, 最後一個則是openpose的confidence。
-![](./openpose_result.png)
+![](./openpose_result.png)\
 每個位置則分別代表身體上的不同部位
 
 **Json2imgs**\
 由於資料每筆都是一個影片, 而每個json則代表一幀, 因此我們選擇將json資料透過轉換成圖片, 在依訓練需求調整。
 透過上述的資料結構我們透過程式將json檔依據影片名稱寫成資料夾, 並將每個影片中的json檔換回圖片。\
 由於Openpose也是一個深度學習model, 因此部分幀數可能會有誤測的狀況(由於軀幹距離過近), 這邊也提供誤測的圖, 在訓練中我們並未刪除這類圖片, 只當作躁點希望能些微幫助訓練。\
-![](./ques.png)
+![](./ques.png)\
 
 
 
