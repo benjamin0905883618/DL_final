@@ -4,7 +4,6 @@
 訓練資料 : [LA訓練資料](https://140.123.105.254:8282/s/FHTEqYpCQWPjdHk)\
 由於訓練的label為UPDRS, 這邊也提供上UPDRS分數的意義\
 <img decoding="async" src="./updrs.png" width="50%">
-![](./updrs.png)
 
 
 ## Part 1 : Data preprocessing
@@ -22,8 +21,10 @@
 
 **Openpose**\
 由於提供的data是json形式的
+<img decoding="async" src="./keypoint.png">
 ![](https://github.com/benjamin0905883618/DL_final/blob/main/keypoint.png)
 每三個一組, 前面兩個部分為keypoints座標, 最後一個則是openpose的confidence。
+<img decoding="async" src="./openpose_result.png" width="50%">
 ![](https://github.com/benjamin0905883618/DL_final/blob/main/openpose_result.png)\
 每個位置則分別代表身體上的不同部位
 
