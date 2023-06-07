@@ -92,6 +92,11 @@ class ResNetLSTM(nn.Module):
 **測試**\
 在測試中, 除了資料過少的類別3外, 皆是來自valid_set, 但我們將擷取的長度改為8秒, 並且改用隨機擷取片段的方式來進行測試。
 
+| model | Left model | Right model |
+| -------- | -------- | -------- |
+| Accuracy    | 0.6666     | 0.4166    |
+
+
 ## Part 4 : Execution(Video Classification)
 1. 下載訓練資料
 2. 使用jsontoimg.py轉換檔案型態
