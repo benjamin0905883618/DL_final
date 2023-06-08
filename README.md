@@ -76,7 +76,9 @@ class ResNetLSTM(nn.Module):
 
 **資料前處理**\
 透過程式將圖片預先轉成影片, 並根據類似DatasetFolder的方式將資料預先分類。
+
 ![](./data_parse1.png)![](./data_parse2.png)
+
 
 再透過pytorchvideo的套件讀成Iter-Dataset。
 由於轉成這個型態後, 無法使用Random_split的套件, 因此我們只能預先將訓練集和驗證集分割好, 由於類別3的影片只有兩支, 所以我們在驗證集在這個類別會用複製的方式, 避免影響訓練的效果, 大約擷取10支影片作驗證, 大約是7:3的比例去做訓練和驗證。
